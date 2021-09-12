@@ -7,7 +7,6 @@ UNITY version 2020.3.18f1
 > - Copy the Folder **Library** onto this project.
 > - Remove the first created project
 
-
 # Git
 
 ## Commit message
