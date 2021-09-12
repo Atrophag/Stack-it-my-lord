@@ -1,4 +1,4 @@
-# Stack-it-my-lord
+# [Stack-it-my-lord](https://miro.com/app/board/o9J_lx5q9Bc=/)
 
 UNITY version 2020.3.18f1
 
@@ -11,19 +11,8 @@ UNITY version 2020.3.18f1
 
 # Git
 
-## Commands
-
-| Command | Action  |
-| :--- | :--- |
-| fetch | get origin branch changes |
-| checkout [branch] | go to selected branch |
-| pull | retrieve origin modifications (on current branch) |
-| add [file \| * \| */\*] | add files to commit |
-| commit -m "[commit message]" | create a commit with added files |
-| push | send commit to origin |
-|  |  |
-
 ## Commit message
+
 > *:emoji: [issue #] commit message*
 
 ## Emoji list
@@ -43,4 +32,3 @@ UNITY version 2020.3.18f1
 | :heavy_check_mark: | Tests              |
 | :package:          | Building           |
 | other              | [Be creative](https://www.webfx.com/tools/emoji-cheat-sheet/) |
-|                    |                    |
