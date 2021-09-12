@@ -2,7 +2,6 @@
 
 UNITY version 2020.3.18f1
 
-
 > ## Installation
 > - Create a new **2D** project with Unity.
 > - Copy the Folder **Library** onto this project.
