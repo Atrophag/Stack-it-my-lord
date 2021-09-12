@@ -8,14 +8,25 @@ UNITY version 2020.3.18f1
 > - Copy the Folder **Library** onto this project.
 > - Remove the first created project
 
----
 
-## Git convention
+# Git
 
-### Commit message
+## Commands
+
+| Command | Action  |
+| :--- | :--- |
+| fetch | get origin branch changes |
+| checkout [branch] | go to selected branch |
+| pull | retrieve origin modifications (on current branch) |
+| add [file \| * \| */\*] | add files to commit |
+| commit -m "[commit message]" | create a commit with added files |
+| push | send commit to origin |
+|  |  |
+
+## Commit message
 > *:emoji: [issue #] commit message*
 
-### Emoji list
+## Emoji list
 
 | Emoji              | Meaning            |
 | :----------------- | :----------------- |
