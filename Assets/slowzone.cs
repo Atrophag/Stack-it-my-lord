@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class slowzone : MonoBehaviour
+{
+    public float maxVelocity = -2.0f;
+    public float gravityScale = 0.2f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        slowBox(collider.gameObject.GetComponent<Rigidbody2D>());
+    }
+
+    void slowBox(Rigidbody2D box)
+    {
+        box.velocity = new Vector2(box.velocity.x, maxVelocity);
+        box.gravityScale = gravityScale;
+        // TODO reduce angular momentum
+    }
+}
