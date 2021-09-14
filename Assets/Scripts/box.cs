@@ -8,8 +8,6 @@ public class box : MonoBehaviour
     public Rigidbody2D rb;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        print(rb.mass);
     }
 
     // Update is called once per frame

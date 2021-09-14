@@ -26,7 +26,7 @@ public class spawner : MonoBehaviour
 
     void InstantiateBox()
     {
-        var position = new Vector3(Random.Range(1.0f, -1.0f), this.transform.position.y);
+        var position = new Vector3(this.transform.position.x, this.transform.position.y);
         Instantiate(box, position, Quaternion.identity);
         boxSpawned += 1;
     }

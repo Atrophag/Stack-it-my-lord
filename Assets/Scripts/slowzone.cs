@@ -24,8 +24,8 @@ public class slowzone : MonoBehaviour
 
     void slowBox(Rigidbody2D box)
     {
-        box.velocity = new Vector2(box.velocity.x, maxVelocity);
+        box.velocity = new Vector2(0, maxVelocity);
+        box.angularVelocity /= 4;
         box.gravityScale = gravityScale;
-        // TODO reduce angular momentum
     }
 }
