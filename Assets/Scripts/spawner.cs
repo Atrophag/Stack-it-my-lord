@@ -4,30 +4,38 @@ using UnityEngine;
 
 public class spawner : MonoBehaviour
 {
-    private float timer = 0;
-    private int boxSpawned = 0;
+    public float timerOffset = 1.0f;
+    public float timerSpan = 1.0f;
+    public bool active = true;
 
+    // gameObject linked on spawner scene
     public GameObject box;
+
+    // private float timer;
+    private float lastInstatiatedBoxTimer;
 
     // Start is called before the first frame update
     void Start()
     {
+        lastInstatiatedBoxTimer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (boxSpawned < timer)
-        {
-            InstantiateBox();
+        if (active) {
+            var timer = Time.fixedTime;
+            if (timer > timerOffset && timer > lastInstatiatedBoxTimer + timerSpan)
+            {
+                InstantiateBox();
+            }
         }
     }
 
     void InstantiateBox()
     {
-        var position = new Vector3(this.transform.position.x, this.transform.position.y);
+        var position = new Vector3(transform.position.x, transform.position.y);
         Instantiate(box, position, Quaternion.identity);
-        boxSpawned += 1;
+        lastInstatiatedBoxTimer = Time.fixedTime;
     }
 }

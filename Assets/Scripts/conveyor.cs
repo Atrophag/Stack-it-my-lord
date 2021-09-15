@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class conveyor : MonoBehaviour
 {
-    public float speed = 100f;
+    public float speed = 1f;
     public Vector3 direction = new Vector3(0, 0, 0);
     public List<Rigidbody2D> onBelt = new List<Rigidbody2D>();
 
@@ -18,7 +18,7 @@ public class conveyor : MonoBehaviour
     {
         foreach(Rigidbody2D rb in this.onBelt)
         {
-            rb.velocity = this.speed * this.direction * Time.deltaTime;
+            rb.velocity = this.speed * this.direction;
         }
     }
 

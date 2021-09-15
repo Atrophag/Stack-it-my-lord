@@ -17,7 +17,7 @@ public class slowzone : MonoBehaviour
     {
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerStay2D(Collider2D collider)
     {
         slowBox(collider.gameObject.GetComponent<Rigidbody2D>());
     }

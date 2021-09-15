@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ac627b94d9b2c4d97b3a91b8adb1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1000
+  speed: 1
   direction: {x: -1, y: 0, z: 0}
   onBelt: []
 --- !u!61 &339442637
@@ -351,7 +351,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339442635}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 2, z: 0}
+  m_LocalPosition: {x: 6, y: 1, z: 0}
   m_LocalScale: {x: 3, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -393,7 +393,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.6650944, g: 0.7770847, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.16642933, g: 0.31550333, b: 0.41509432, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -410,7 +410,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -420,7 +420,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 0
   m_HDR: 1
-  m_AllowMSAA: 0
+  m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 0
@@ -434,7 +434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -6.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -450,8 +450,8 @@ GameObject:
   m_Component:
   - component: {fileID: 823363925}
   - component: {fileID: 823363922}
-  - component: {fileID: 823363924}
   - component: {fileID: 823363923}
+  - component: {fileID: 823363924}
   m_Layer: 0
   m_Name: slowzone
   m_TagString: Untagged
@@ -623,7 +623,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 20, y: 1}
+  m_Size: {x: 100, y: 1}
   m_EdgeRadius: 0
 --- !u!4 &939654413
 Transform:
@@ -668,6 +668,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7433b6c8e740c024c82994db553dbeee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerOffset: 1
+  timerSpan: 1
+  active: 1
   box: {fileID: 1489972705337500616, guid: b42f21e6391a89940a5acad6be475efd, type: 3}
 --- !u!4 &1511090120
 Transform:
@@ -677,7 +680,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511090118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 3, z: 0}
+  m_LocalPosition: {x: 7, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
