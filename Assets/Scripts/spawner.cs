@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     public float timerOffset = 1.0f;
     public float timerSpan = 1.0f;

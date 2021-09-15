@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class conveyor : MonoBehaviour
+public class Conveyor : MonoBehaviour
 {
     public float speed = 1f;
     public Vector3 direction = new Vector3(0, 0, 0);
-    public List<Rigidbody2D> onBelt = new List<Rigidbody2D>();
+    private List<Rigidbody2D> onBelt = new List<Rigidbody2D>();
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,7 @@ public class conveyor : MonoBehaviour
     {
         foreach(Rigidbody2D rb in this.onBelt)
         {
+            // TODO: do not update velocity if box is picked up
             rb.velocity = this.speed * this.direction;
         }
     }

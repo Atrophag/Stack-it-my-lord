@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class slowzone : MonoBehaviour
+public class Slowzone : MonoBehaviour
 {
     public float maxVelocity = -2.0f;
     public float gravityScale = 0.2f;
