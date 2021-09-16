@@ -12,12 +12,12 @@ public class Spawner : MonoBehaviour
     public GameObject box;
 
     // private float timer;
-    private float lastInstatiatedBoxTimer;
+    private float _lastInstatiatedBoxTimer;
 
     // Start is called before the first frame update
     void Start()
     {
-        lastInstatiatedBoxTimer = 0;
+        _lastInstatiatedBoxTimer = 0;
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
     {
         if (active) {
             var timer = Time.fixedTime;
-            if (timer > timerOffset && timer > lastInstatiatedBoxTimer + timerSpan)
+            if (timer > timerOffset && timer > _lastInstatiatedBoxTimer + timerSpan)
             {
                 InstantiateBox();
             }
@@ -36,6 +36,6 @@ public class Spawner : MonoBehaviour
     {
         var position = new Vector3(transform.position.x, transform.position.y);
         Instantiate(box, position, Quaternion.identity);
-        lastInstatiatedBoxTimer = Time.fixedTime;
+        _lastInstatiatedBoxTimer = Time.fixedTime;
     }
 }
