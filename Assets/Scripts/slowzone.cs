@@ -2,30 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slowzone : MonoBehaviour
+public class SlowZone : MonoBehaviour
 {
     public float maxVelocity = -2.0f;
     public float gravityScale = 0.2f;
 
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter2D(Collider2D collider)
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-    void OnTriggerStay2D(Collider2D collider)
-    {
+		// set box on fire
+        (collider.gameObject.GetComponent(typeof(Box)) as Box).setOnFire();
+		// and slow it down
         slowBox(collider.gameObject.GetComponent<Rigidbody2D>());
     }
 
-    void slowBox(Rigidbody2D box)
+    void OnTriggerExit2D(Collider2D collider)
     {
-        box.velocity = new Vector2(0, maxVelocity);
-        box.angularVelocity /= 4;
-        box.gravityScale = gravityScale;
+        collider.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+    }
+
+    void slowBox(Rigidbody2D rigidbody)
+    {
+        rigidbody.velocity = new Vector2(0, maxVelocity);
+        rigidbody.angularVelocity = 0;
+        rigidbody.gravityScale = gravityScale;
     }
 }

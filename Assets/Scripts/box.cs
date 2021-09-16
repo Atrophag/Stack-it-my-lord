@@ -4,9 +4,48 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
-    public int speed = 2;
-    public bool pickedUp = false;
+    public float dragSpeed = 2f;
+    public int onFireLevel = 0;
+    public int extenguishFireCount = 5;
+    public bool isPickedUp = false;
     private Vector3 mouseOffset;
+
+    void Update()
+    {
+        float alpha = (float)onFireLevel / extenguishFireCount;
+        Color color = new Color(1, 1, 1, alpha);
+        // TODO: GetChild(1)
+        transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().color = color;
+    }
+
+    public void setOnFire()
+    {
+        onFireLevel = extenguishFireCount;
+    }
+
+    void OnMouseDown()
+    {
+        isPickedUp = true;
+        onFireLevel = onFireLevel > 0 ? onFireLevel - 1 : 0;
+        // calc offset between mouse and gameObject
+        mouseOffset = GetGameObjectPosition() - GetMousePosition();
+    }
+
+    void OnMouseUp()
+    {
+        isPickedUp = false;
+    }
+
+    void OnMouseDrag()
+    {
+        var rigidbody = gameObject.GetComponent<Rigidbody2D>();
+
+        var goalPos = GetMousePosition() + mouseOffset;
+        var objPos = GetGameObjectPosition();
+        var vector = (goalPos - objPos) * dragSpeed;
+
+        rigidbody.velocity = vector;
+    }
 
     private Vector3 GetMousePosition()
     {
@@ -16,29 +55,6 @@ public class Box : MonoBehaviour
     private Vector3 GetGameObjectPosition()
     {
         return gameObject.transform.position;
-    }
-
-    void OnMouseDown()
-    {
-        pickedUp = true;
-        // calc offset between mouse and gameObject
-        mouseOffset = GetGameObjectPosition() - GetMousePosition();
-    }
-
-    void OnMouseUp()
-    {
-        pickedUp = false;
-    }
-
-    void OnMouseDrag()
-    {
-        var rigidbody = gameObject.GetComponent<Rigidbody2D>();
-
-        var goalPos = GetMousePosition() + mouseOffset;
-        var objPos = GetGameObjectPosition();
-        var vector = (goalPos - objPos) * speed;
-
-        rigidbody.velocity = vector;
     }
 
 }
