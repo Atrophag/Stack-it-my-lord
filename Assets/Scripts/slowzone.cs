@@ -7,17 +7,17 @@ public class SlowZone : MonoBehaviour
     public float maxVelocity = -2.0f;
     public float gravityScale = 0.2f;
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerEnter2D(Collider2D other)
     {
 		// set box on fire
-        (collider.gameObject.GetComponent(typeof(Box)) as Box).setOnFire();
+        (other.gameObject.GetComponent(typeof(Box)) as Box).setOnFire();
 		// and slow it down
-        slowBox(collider.gameObject.GetComponent<Rigidbody2D>());
+        slowBox(other.gameObject.GetComponent<Rigidbody2D>());
     }
 
-    void OnTriggerExit2D(Collider2D collider)
+    void OnTriggerExit2D(Collider2D other)
     {
-        collider.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+        other.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
     }
 
     void slowBox(Rigidbody2D rigidbody)

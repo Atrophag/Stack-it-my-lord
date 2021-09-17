@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour
     public bool active = true;
 
     // gameObject linked on spawner scene
-    public GameObject box;
+    public GameObject Box;
 
     // private float timer;
     private float _lastInstatiatedBoxTimer;
@@ -35,7 +35,7 @@ public class Spawner : MonoBehaviour
     void InstantiateBox()
     {
         var position = new Vector3(transform.position.x, transform.position.y);
-        Instantiate(box, position, Quaternion.identity);
+        Instantiate(Box, position, Quaternion.identity);
         _lastInstatiatedBoxTimer = Time.fixedTime;
     }
 }
