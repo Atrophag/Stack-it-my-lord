@@ -10,7 +10,7 @@ public class SlowZone : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 		// set box on fire
-        (other.gameObject.GetComponent(typeof(Box)) as Box).setOnFire();
+        (other.gameObject.GetComponent(typeof(DraggableItem)) as DraggableItem).setOnFire();
 		// and slow it down
         slowBox(other.gameObject.GetComponent<Rigidbody2D>());
     }

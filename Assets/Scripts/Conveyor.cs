@@ -13,8 +13,8 @@ public class Conveyor : MonoBehaviour
     {
         foreach(GameObject gameObject in this._onBelt)
         {
-            Box box = gameObject.GetComponent(typeof(Box)) as Box;
-            if (!box.pickedUp) {
+            DraggableItem item = gameObject.GetComponent(typeof(DraggableItem)) as DraggableItem;
+            if (!item.pickedUp) {
                 gameObject.GetComponent<Rigidbody2D>().velocity = this.speed * this.direction;
             }
         }

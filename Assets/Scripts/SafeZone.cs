@@ -9,8 +9,8 @@ public class SafeZone : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        Box box = other.gameObject.GetComponent(typeof(Box)) as Box;
-        box.stalled = isVelocityValid(other.gameObject.GetComponent<Rigidbody2D>());
+        DraggableItem item = other.gameObject.GetComponent(typeof(DraggableItem)) as DraggableItem;
+        item.stalled = isVelocityValid(other.gameObject.GetComponent<Rigidbody2D>());
     }
 
     private bool isVelocityValid(Rigidbody2D rb)

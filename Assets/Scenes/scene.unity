@@ -213,7 +213,6 @@ GameObject:
   - component: {fileID: 122538259}
   - component: {fileID: 122538258}
   - component: {fileID: 122538257}
-  - component: {fileID: 122538260}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -312,18 +311,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &122538260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122538256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55e5534ee9517b14f81ce2ad7d8905ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &259496122
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +557,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.16642933, g: 0.31550333, b: 0.41509432, a: 0}
+  m_BackGroundColor: {r: 0.05549129, g: 0.33610702, b: 0.4056604, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -948,7 +935,10 @@ MonoBehaviour:
   timerOffset: 1
   timerSpan: 1
   active: 1
-  Box: {fileID: 3556865494032353689, guid: c5641cf2ad18bd445acc25fb347d2488, type: 3}
+  spawnables:
+  - {fileID: 3556865494032353689, guid: c5641cf2ad18bd445acc25fb347d2488, type: 3}
+  - {fileID: 7633243955922556018, guid: cbdb1bc6344628947ba973f1dfccfa5a, type: 3}
+  - {fileID: 1731308858884740849, guid: d275a0111a13afe4583cda644e487efc, type: 3}
 --- !u!4 &1511090120
 Transform:
   m_ObjectHideFlags: 0
