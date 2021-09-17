@@ -29,7 +29,7 @@ public class DraggableItem : MonoBehaviour
     void Update()
     {
         UpdateMask(SpriteMasksEnum.pickedUp, Convert.ToSingle(pickedUp));
-        UpdateMask(SpriteMasksEnum.onFire, (float)onFireLevel / extenguishFireCount);
+        UpdateMask(SpriteMasksEnum.onFire, (float)onFireLevel / (float)extenguishFireCount);
         UpdateMask(SpriteMasksEnum.stalled, Convert.ToSingle(stalled));
     }
 
