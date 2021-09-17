@@ -71,14 +71,7 @@ public class Box : MonoBehaviour
         var vector = (goalPos - objPos) * dragSpeed;
 
         rigidbody.velocity = vector;
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
+        rigidbody.angularVelocity = 0;
     }
 
     private Vector3 GetMousePosition()
