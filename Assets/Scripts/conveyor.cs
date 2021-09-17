@@ -5,7 +5,7 @@ using UnityEngine;
 public class Conveyor : MonoBehaviour
 {
     public float speed = 1f;
-    public Vector3 direction = new Vector3(0, 0, 0);
+    public Vector3 direction = new Vector3(-1, 0, 0);
     private List<GameObject> _onBelt = new List<GameObject>();
 
     // Update is called once per frame
@@ -14,7 +14,7 @@ public class Conveyor : MonoBehaviour
         foreach(GameObject gameObject in this._onBelt)
         {
             Box box = gameObject.GetComponent(typeof(Box)) as Box;
-            if (!box.isPickedUp()) {
+            if (!box.pickedUp) {
                 gameObject.GetComponent<Rigidbody2D>().velocity = this.speed * this.direction;
             }
         }

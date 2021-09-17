@@ -11,25 +11,17 @@ enum BoxSpritesEnum
 public class Box : MonoBehaviour
 {
     public float dragSpeed = 2f;
-    public int onFireLevel = 0;
     public int extenguishFireCount = 5;
-    private bool _pickedUp = false;
-    public bool _stalled = false;
+    public int onFireLevel = 0;
+    // could be private
+    public bool stalled = false;
+    public bool pickedUp = false;
+
     private Vector3 _mouseOffset;
 
     public void setOnFire()
     {
         onFireLevel = extenguishFireCount;
-    }
-
-    public bool isPickedUp()
-    {
-        return _pickedUp;
-    }
-
-    public bool isStalled()
-    {
-        return _stalled;
     }
 
     void Update()
@@ -47,7 +39,7 @@ public class Box : MonoBehaviour
 
     private void UpdateStalledSprite()
     {
-        float alpha = _stalled ? 1f : 0f;
+        float alpha = stalled ? 1f : 0f;
         Color color = new Color(1, 1, 1, alpha);
         GetSpriteRenderer(BoxSpritesEnum.stalled).color = color;
     }
@@ -59,7 +51,7 @@ public class Box : MonoBehaviour
 
     private void OnMouseDown()
     {
-        _pickedUp = true;
+        pickedUp = true;
         onFireLevel = onFireLevel > 0 ? onFireLevel - 1 : 0;
         // calc offset between mouse and gameObject
         _mouseOffset = GetGameObjectPosition() - GetMousePosition();
@@ -67,7 +59,7 @@ public class Box : MonoBehaviour
 
     private void OnMouseUp()
     {
-        _pickedUp = false;
+        pickedUp = false;
     }
 
     private void OnMouseDrag()

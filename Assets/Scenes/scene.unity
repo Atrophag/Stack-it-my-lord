@@ -754,8 +754,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46cc5cfd7fca7ed41a9253347ffb750a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocity: -1
-  gravityScale: 0.1
+  maxVelocity: -2
+  gravityScale: 0.2
 --- !u!224 &823363925
 RectTransform:
   m_ObjectHideFlags: 0
@@ -874,8 +874,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7433b6c8e740c024c82994db553dbeee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerOffset: 2
-  timerSpan: 2
+  timerOffset: 1
+  timerSpan: 1
   active: 1
   box: {fileID: 3556865494032353689, guid: c5641cf2ad18bd445acc25fb347d2488, type: 3}
 --- !u!4 &1511090120
