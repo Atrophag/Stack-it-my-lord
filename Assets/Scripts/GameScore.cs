@@ -3,17 +3,24 @@ using UnityEngine;
 
 public class GameScore
 {
-    public GameObject textObject;
-    public string textFormat = "Score: {0}";
+    public GameObject scoreTextObject;
+    public GameObject maxScoreTextObject;
+    private int maxScore = 0; 
 
     public void Initialize()
     {
-        textObject = GameObject.Find("GameScore");
+        scoreTextObject = GameObject.Find("GameScore");
+        maxScoreTextObject = GameObject.Find("GameMaxScore");
     }
 
     public void SetScore(int score)
     {
-        string scoreText = String.Format(textFormat, score.ToString());
-        textObject.GetComponent<UnityEngine.UI.Text>().text = scoreText;
+        maxScore = score > maxScore ? score : maxScore;
+
+        string scoreText = String.Format("Score: {0}", score.ToString());
+        string maxScoreText = String.Format("Max: {0}", maxScore.ToString());
+
+        scoreTextObject.GetComponent<UnityEngine.UI.Text>().text = scoreText;
+        maxScoreTextObject.GetComponent<UnityEngine.UI.Text>().text = maxScoreText;
     }
 }
