@@ -6,14 +6,30 @@ using UnityEngine;
 public class ValidZone : MonoBehaviour
 {
     public float velocityThreshold = 0.1f;
-    private List<DraggableItem> _list = new List<DraggableItem>(); 
+    private List<DraggableItem> _list = new List<DraggableItem>();
+    private GameScore GameScore = new GameScore();
+
+    private void Start()
+    {
+        GameScore.Initialize();
+    }
+
+    private void Update()
+    {
+        int count = 0;
+        foreach (DraggableItem item in _list)
+        {
+            count += item.stalled ? item.score : 0;
+        }
+        GameScore.SetScore(count);
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        // DraggableItem item = other.gameObject.GetComponent(typeof(DraggableItem)) as DraggableItem;
-        // item.stalled = isVelocityValid(Utils.CastRigidBody(other.gameObject));
+        DraggableItem item = Utils.CastDraggableItem(other.gameObject);
+        bool stalled = isVelocityValid(Utils.CastRigidBody(other.gameObject));
+        item.stalled = stalled;
     }
-
     private bool isVelocityValid(Rigidbody2D rb)
     {
         return Math.Abs(rb.velocity.x) < velocityThreshold

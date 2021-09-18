@@ -16,6 +16,7 @@ public class DraggableItem : MonoBehaviour
     public int onFireLevel = 0;
     public bool stalled = false;
     public bool pickedUp = false;
+    public int score = 10;
 
     private Vector3 _mouseOffset;
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3953524302342379781}
   m_Layer: 0
   m_Name: Triangle
-  m_TagString: Untagged
+  m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,6 +74,7 @@ MonoBehaviour:
   onFireLevel: 0
   stalled: 0
   pickedUp: 0
+  score: 40
 --- !u!60 &3953524302342379781
 PolygonCollider2D:
   m_ObjectHideFlags: 0
