@@ -11,11 +11,10 @@ public class Conveyor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach(GameObject gameObject in this._onBelt)
+        foreach (GameObject gameObject in this._onBelt)
         {
-            DraggableItem item = gameObject.GetComponent(typeof(DraggableItem)) as DraggableItem;
-            if (!item.pickedUp) {
-                gameObject.GetComponent<Rigidbody2D>().velocity = this.speed * this.direction;
+            if (!Utils.CastDraggableItem(gameObject).pickedUp) {
+                Utils.CastRigidBody(gameObject).velocity = this.speed * this.direction;
             }
         }
     }

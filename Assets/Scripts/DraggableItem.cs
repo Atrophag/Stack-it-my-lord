@@ -59,7 +59,7 @@ public class DraggableItem : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        var rigidbody = gameObject.GetComponent<Rigidbody2D>();
+        var rigidbody = Utils.CastRigidBody(gameObject);
 
         var goalPos = GetMousePosition() + _mouseOffset;
         var objPos = GetGameObjectPosition();
