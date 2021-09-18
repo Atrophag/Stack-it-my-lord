@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 7321169913562578098}
   - component: {fileID: 3964695808809273784}
   - component: {fileID: 7714828148341600085}
+  - component: {fileID: -7270575498859892614}
   m_Layer: 0
   m_Name: LongBox
   m_TagString: Untagged
@@ -346,3 +347,29 @@ MonoBehaviour:
   onFireLevel: 0
   stalled: 0
   pickedUp: 0
+--- !u!114 &-7270575498859892614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7633243955922556018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.6431202, y: -0.3212442, z: 0}
+  - {x: -0.63925755, y: 0.3205945, z: 0}
+  - {x: 0.641189, y: 0.3225258, z: 0}
+  - {x: 0.6411889, y: -0.3205945, z: 0}
+  m_ShapePathHash: -607672935
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 28056
