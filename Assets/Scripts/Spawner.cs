@@ -9,16 +9,13 @@ public class Spawner : MonoBehaviour
     public bool active = true;
     public GameObject[] spawnables;
 
-    // private float timer;
     private float _lastInstatiatedBoxTimer;
 
-    // Start is called before the first frame update
     void Start()
     {
         _lastInstatiatedBoxTimer = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (active) {

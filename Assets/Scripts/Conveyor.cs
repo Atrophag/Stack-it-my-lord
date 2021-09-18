@@ -8,7 +8,6 @@ public class Conveyor : MonoBehaviour
     public Vector3 direction = new Vector3(-1, 0, 0);
     private List<GameObject> _onBelt = new List<GameObject>();
 
-    // Update is called once per frame
     void Update()
     {
         foreach (GameObject gameObject in this._onBelt)

@@ -7,7 +7,6 @@ enum SpriteMasksEnum
 {
     pickedUp = 1,
     onFire,
-    stalled
 }
 
 public class DraggableItem : MonoBehaviour
@@ -15,7 +14,6 @@ public class DraggableItem : MonoBehaviour
     public float dragSpeed = 2f;
     public int extenguishFireCount = 5;
     public int onFireLevel = 0;
-    // could be private
     public bool stalled = false;
     public bool pickedUp = false;
 
@@ -30,7 +28,6 @@ public class DraggableItem : MonoBehaviour
     {
         UpdateMask(SpriteMasksEnum.pickedUp, Convert.ToSingle(pickedUp));
         UpdateMask(SpriteMasksEnum.onFire, (float)onFireLevel / (float)extenguishFireCount);
-        UpdateMask(SpriteMasksEnum.stalled, Convert.ToSingle(stalled));
     }
 
     private void UpdateMask(SpriteMasksEnum maskIndex, float alpha)
