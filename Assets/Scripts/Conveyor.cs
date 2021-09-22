@@ -12,6 +12,7 @@ public class Conveyor : MonoBehaviour
     {
         foreach (GameObject gameObject in this._onBelt)
         {
+            // check null
             if (!Utils.CastDraggableItem(gameObject).pickedUp) {
                 Utils.CastRigidBody(gameObject).velocity = this.speed * this.direction;
             }
