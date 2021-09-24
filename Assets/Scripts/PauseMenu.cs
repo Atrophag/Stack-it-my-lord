@@ -5,10 +5,13 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pausePanel;
+
+    private GameObject _gameInterface;
     private bool _paused = false;
 
     public void Start()
     {
+        _gameInterface = GameObject.Find("Game Interface");
         TogglePanel(_paused);
     }
 
@@ -27,6 +30,7 @@ public class PauseMenu : MonoBehaviour
 
     private void TogglePanel(bool active)
     {
+        _gameInterface.SetActive(!active);
         pausePanel.SetActive(active);
     }
 }

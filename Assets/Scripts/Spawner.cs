@@ -4,35 +4,42 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public float timerOffset = 1.0f;
-    public float timerSpan = 1.0f;
-    public bool active = true;
+    public float spawnerTimeSpan = 1.5f;
+    // public for test purpose
+    public bool active = false;
     public GameObject[] spawnables;
 
-    private float _lastInstatiatedBoxTimer;
+    private TimeSpan _timeSpan;
 
     void Start()
     {
-        _lastInstatiatedBoxTimer = 0;
+        _timeSpan = new TimeSpan(spawnerTimeSpan);
+        _timeSpan.active = false;
     }
 
     void Update()
     {
-        if (active) {
-            var timer = Time.fixedTime;
-            if (timer > timerOffset && timer > _lastInstatiatedBoxTimer + timerSpan)
-            {
-                InstantiateItem();
-            }
+        if (_timeSpan.IsReady()) {
+            InstantiateItem();
         }
     }
 
     void InstantiateItem()
     {
-        var position = new Vector3(transform.position.x, transform.position.y);
-        var index = Random.Range(0, spawnables.Length);
+        Vector3 position = new Vector3(transform.position.x, transform.position.y);
+        int index = Random.Range(0, spawnables.Length);
         
         Instantiate(spawnables[index], position, Quaternion.identity);
-        _lastInstatiatedBoxTimer = Time.fixedTime;
+        _timeSpan.UpdateTimer();
+    }
+
+    public void Activate()
+    {
+        _timeSpan.active = true;
+    }
+
+    public void DeActivate()
+    {
+        _timeSpan.active = false;
     }
 }

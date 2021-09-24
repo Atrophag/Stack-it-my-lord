@@ -7,21 +7,13 @@ public class ValidZone : MonoBehaviour
 {
     public float velocityThreshold = 0.1f;
     private List<DraggableItem> _list = new List<DraggableItem>();
-    private GameScore GameScore = new GameScore();
 
     private void Start()
     {
-        GameScore.Initialize();
     }
 
     private void Update()
     {
-        int count = 0;
-        foreach (DraggableItem item in _list)
-        {
-            count += item.stalled ? item.score : 0;
-        }
-        GameScore.SetScore(count);
     }
 
     private void OnTriggerStay2D(Collider2D other)
