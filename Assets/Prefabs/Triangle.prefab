@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7579175698455617701}
   m_Layer: 0
   m_Name: Triangle
-  m_TagString: item
+  m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   - {x: -0.32, y: 0.32, z: 0}
   m_ShapePathHash: 1220959415
   m_Mesh: {fileID: 0}
-  m_InstanceId: -42660
+  m_InstanceId: 29158
 --- !u!1 &3813499149444479485
 GameObject:
   m_ObjectHideFlags: 0

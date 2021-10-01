@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 449646908959218840}
   m_Layer: 0
   m_Name: Box
-  m_TagString: item
+  m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -373,4 +373,4 @@ MonoBehaviour:
   - {x: -0.31999993, y: 0.32, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 26800
+  m_InstanceId: 31032

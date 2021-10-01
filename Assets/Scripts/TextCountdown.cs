@@ -12,14 +12,7 @@ class TextCountdown : MonoBehaviour
 
     private string _text;
     private uint _count;
-
-    // launch func
-    public void SetTextCountdown(string text, uint count)
-    {
-        _text = text;
-        _count = count;
-        _timeSpan.active = true;
-    }
+    private bool _displayCounter;
 
     void Start()
     {
@@ -34,7 +27,7 @@ class TextCountdown : MonoBehaviour
         {
             if (_count > 0)
             {
-               SetText(_text + _count.ToString());
+               SetText(_text + (_displayCounter ? _count.ToString() : ""));
             }
             else
             {
@@ -45,6 +38,15 @@ class TextCountdown : MonoBehaviour
         }
     }
     
+    // launch func
+    public void Set(string text, uint count, bool displayCounter = true)
+    {
+        _text = text;
+        _count = count;
+        _timeSpan.active = true;
+        _displayCounter = displayCounter;
+    }
+
     public void SetText(string text)
     {
         _textMesh.SetText(text);

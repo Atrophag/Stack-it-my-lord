@@ -19,6 +19,7 @@ public class DraggableItem : MonoBehaviour
     public int score = 10;
 
     private Vector3 _mouseOffset;
+    private bool _active = true;
 
     public void setOnFire()
     {
@@ -29,6 +30,12 @@ public class DraggableItem : MonoBehaviour
     {
         UpdateMask(SpriteMasksEnum.pickedUp, Convert.ToSingle(pickedUp));
         UpdateMask(SpriteMasksEnum.onFire, (float)onFireLevel / (float)extenguishFireCount);
+    }
+
+    public void Deactivate()
+    {
+        _active = false;
+        pickedUp = false;
     }
 
     private void UpdateMask(SpriteMasksEnum maskIndex, float alpha)
@@ -44,10 +51,13 @@ public class DraggableItem : MonoBehaviour
 
     private void OnMouseDown()
     {
-        pickedUp = true;
-        onFireLevel = onFireLevel > 0 ? onFireLevel - 1 : 0;
-        // calc offset between mouse and gameObject
-        _mouseOffset = GetGameObjectPosition() - GetMousePosition();
+        if (_active)
+        {
+            pickedUp = true;
+            onFireLevel = onFireLevel > 0 ? onFireLevel - 1 : 0;
+            // calc offset between mouse and gameObject
+            _mouseOffset = GetGameObjectPosition() - GetMousePosition();
+        }
     }
 
     private void OnMouseUp()
@@ -57,14 +67,17 @@ public class DraggableItem : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        var rigidbody = Utils.CastRigidBody(gameObject);
+        if (_active)
+        {
+            var rigidbody = Utils.CastRigidBody(gameObject);
 
-        var goalPos = GetMousePosition() + _mouseOffset;
-        var objPos = GetGameObjectPosition();
-        var vector = (goalPos - objPos) * dragSpeed;
+            var goalPos = GetMousePosition() + _mouseOffset;
+            var objPos = GetGameObjectPosition();
+            var vector = (goalPos - objPos) * dragSpeed;
 
-        rigidbody.velocity = vector;
-        rigidbody.angularVelocity = 0;
+            rigidbody.velocity = vector;
+            rigidbody.angularVelocity = 0;
+        }
     }
 
     private Vector3 GetMousePosition()

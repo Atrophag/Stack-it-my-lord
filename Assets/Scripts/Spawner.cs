@@ -29,7 +29,8 @@ public class Spawner : MonoBehaviour
         Vector3 position = new Vector3(transform.position.x, transform.position.y);
         int index = Random.Range(0, spawnables.Length);
         
-        Instantiate(spawnables[index], position, Quaternion.identity);
+        GameObject clone = Instantiate(spawnables[index], position, Quaternion.identity);
+        clone.tag = "Draggable";
         _timeSpan.UpdateTimer();
     }
 
@@ -38,7 +39,7 @@ public class Spawner : MonoBehaviour
         _timeSpan.active = true;
     }
 
-    public void DeActivate()
+    public void Deactivate()
     {
         _timeSpan.active = false;
     }
