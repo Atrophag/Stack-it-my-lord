@@ -9,10 +9,13 @@ public class MainGame : MonoBehaviour
     public uint roundTimer = 10;
     // duration du calcul en fin de round
     public uint endRoundTimer = 2;
+    
+    public GameObject[] validationZones;
 
     private TimeSpan _timeSpan;
     private TextCountdown _textCountdown;
     private Spawner _spawner;
+    private GameObject _currentValidationZone;
 
     private uint _round = 1;
     private uint _step = 0;
@@ -23,6 +26,7 @@ public class MainGame : MonoBehaviour
         _textCountdown = GameObject.Find("Alert Text").GetComponent<TextCountdown>();
 
         // start
+        _textCountdown.Set("Bienvenue !", 2);
         NextStep();
     }
 
@@ -52,13 +56,13 @@ public class MainGame : MonoBehaviour
 
     private void PrepareRound()
     {
-        // TODO: add validation zone
         _textCountdown.Set("Début du round " + _round.ToString() + "\n", 3);
         _step += 1;
     }
 
     private void StartRound()
     {
+        InstanciateValidationZone();
         _spawner.Activate();
         _textCountdown.Set("", roundTimer);
         _step += 1;
@@ -67,10 +71,18 @@ public class MainGame : MonoBehaviour
     private void EndRound()
     {
         _spawner.Deactivate();
-        _textCountdown.Set("Envoi vers l'armoire magique de la mort qui tue", endRoundTimer, false);
+        _textCountdown.Set("Envoi vers l'armoire magique de la mort qui tue suuuper long message", endRoundTimer, false);
+        Destroy(_currentValidationZone);
         RemoveBoxes();
         _round += 1;
         _step += 1;
+    }
+
+    private void InstanciateValidationZone()
+    {
+        Vector3 position = new Vector3(0, 0);
+        GameObject validationZone = validationZones[_round % validationZones.Length];
+        _currentValidationZone = Instantiate(validationZone, position, Quaternion.identity);
     }
 
     private void RemoveBoxes()
@@ -78,7 +90,12 @@ public class MainGame : MonoBehaviour
         foreach (GameObject item in GameObject.FindGameObjectsWithTag("Draggable"))
         {
             DraggableItem box = Utils.CastDraggableItem(item);
+            // Deactivate all boxes (non-pickable)
             box.Deactivate();
+            if (box.stalled) {
+                // add points ?
+                Destroy(item);
+            }
         }
     }
 }
